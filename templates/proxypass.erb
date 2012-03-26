@@ -5,6 +5,4 @@
     Allow from all
 </Proxy>
 
-ProxyPass <%= location %> <%= url -%> <%= params.join(' ') %>
-# ProxyPassReverse <%= location %> <%= url %>
-
+ProxyPassMatch <%= location %> <%= url -%> <%= params.join(' ') %>
