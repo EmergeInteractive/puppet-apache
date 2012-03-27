@@ -1,4 +1,5 @@
 define apache::vhost (
+  $directory_index="",
   $ensure=present,
   $config_file="",
   $config_content=false,

@@ -7,6 +7,9 @@
 <% end -%>
 
   DocumentRoot <%= documentroot %>
+<% unless directory_index=="" -%>
+  DirectoryIndex <%= directory_index %>
+<% end -%>
 
   LogLevel warn
 
