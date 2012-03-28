@@ -6,3 +6,7 @@
 </Proxy>
 
 ProxyPassMatch <%= location %> <%= url -%> <%= params.join(' ') %>
+
+<% unless app_name == "" -%>
+	ProxyPassReverseCookiePath /<%= app_name -%> /
+<% end -%>

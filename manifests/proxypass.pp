@@ -40,7 +40,8 @@ define apache::proxypass (
   $url="", 
   $params=[], 
   $filename="", 
-  $vhost
+  $vhost,
+  $app_name="",
 ) {
 
   $fname = regsubst($name, "\s", "_", "G")
