@@ -11,6 +11,12 @@
   DirectoryIndex <%= directory_index %>
 <% end -%>
 
+<% if errors -%>
+  <% errors.each do |v| -%>
+  ErrorDocument <%= v["code"] %> <%= v["path"] %>
+  <% end -%>
+<% end -%>
+
   LogLevel warn
 
   ErrorLog <%= wwwroot %>/<%= name %>/logs/error.log
