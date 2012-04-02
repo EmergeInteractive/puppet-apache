@@ -18,6 +18,7 @@ Parameters:
 - *filename*: basename of the file in which the directive(s) will be put.
   Useful in the case directive order matters: apache reads the files in conf/
   in alphabetical order.
+- *proxyMatch*: Used if there is need for multiple proxymatch directives.
 
 Requires:
 - Class["apache"]
@@ -38,11 +39,21 @@ define apache::proxypass (
   $ensure="present", 
   $location="", 
   $url="", 
-  $params=[], 
+  $params=[],
+  $proxyMatch=[],
   $filename="", 
   $vhost,
   $app_name="",
 ) {
+
+  if($proxyMatch == []){
+    $proxyMatchList = [{
+      location => $location,
+      url => $url
+    }]
+  } else {
+    $proxyMatchList = $proxyMatch
+  }
 
   $fname = regsubst($name, "\s", "_", "G")
 

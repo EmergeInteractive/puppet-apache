@@ -5,7 +5,9 @@
     Allow from all
 </Proxy>
 
-ProxyPassMatch <%= location %> <%= url -%> <%= params.join(' ') %>
+<% proxyMatchList.each do |v| -%>
+	ProxyPassMatch <%= v["location"] %> <%= v["url"] -%> <%= params.join(' ') %>
+<% end -%>
 
 <% unless app_name == "" -%>
 	ProxyPassReverseCookiePath /<%= app_name -%> /
