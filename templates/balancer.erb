@@ -5,8 +5,7 @@
     Allow from all
 </Proxy>
 
-ProxyPass <%= location %> <%= balancer %>/
-ProxyPassReverse <%= location %> <%= balancer %>/
+ProxyPassMatch <%= location %> <%= balancer %>/<%= app_path %> stickysession=JSESSIONID|jsessionid
 
 <Proxy <%= balancer %>>
 
