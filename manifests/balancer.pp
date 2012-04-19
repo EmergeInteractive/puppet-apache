@@ -53,6 +53,7 @@ define apache::balancer (
   $params=["retry=5"],
   $filename="",
   $app_path="",
+  $app_name="",
   $vhost
 ) {
 

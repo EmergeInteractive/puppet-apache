@@ -7,8 +7,8 @@
 
 ProxyPassMatch <%= location %> <%= balancer %>/<%= app_path %> stickysession=JSESSIONID|jsessionid
 
-<% unless( app_path == "" ) %>
-	ProxyPassReverseCookiePath /<%= app_path %> /
+<% unless( app_name == "" ) %>
+	ProxyPassReverseCookiePath /<%= app_name %> /
 <% end %>
 
 <Proxy <%= balancer %>>
