@@ -43,7 +43,7 @@ define apache::proxypass (
   $proxyMatch=[],
   $filename="", 
   $vhost,
-  $app_name="",
+  $app_name=""
 ) {
 
   if($proxyMatch == []){
