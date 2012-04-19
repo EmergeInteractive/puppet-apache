@@ -52,7 +52,7 @@ define apache::balancer (
   $standbyurl="",
   $params=["retry=5"],
   $filename="",
-  $app_path="/",
+  $app_path="",
   $vhost
 ) {
 
