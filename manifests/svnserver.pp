@@ -1,6 +1,6 @@
 class apache::svnserver inherits apache::ssl {
 
-  case $operatingsystem {
+  case $::operatingsystem {
 
     Debian,Ubuntu:  {
       $pkglist = [ 'libapache2-svn' ]
