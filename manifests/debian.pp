@@ -35,6 +35,13 @@ class apache::debian inherits apache::base {
     force  => true,
   }
 
+  file { "${apache::params::conf}/conf/apache2.conf":
+    ensure => present,
+    content => template("apache/httpd.conf.erb"),
+    notify  => Service["apache"],
+    require => Package["apache"],
+  }
+
   file { "${apache::params::root}/index.html":
     ensure => absent,
   }
