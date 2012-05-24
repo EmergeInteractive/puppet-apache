@@ -1,4 +1,4 @@
-class apache::debian inherits apache::base {
+class apache::debian($custom_httpd="") inherits apache::base {
 
   include apache::params
 
@@ -35,9 +35,10 @@ class apache::debian inherits apache::base {
     force  => true,
   }
 
-  file { "${apache::params::conf}/conf/apache2.conf":
+  file { "${apache::params::conf}/httpd.conf":
     ensure => present,
-    content => template("apache/httpd.conf.erb"),
+    replace => true,
+    content => $custom_httpd,
     notify  => Service["apache"],
     require => Package["apache"],
   }

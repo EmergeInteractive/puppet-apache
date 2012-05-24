@@ -13,9 +13,9 @@ Example usage:
   include apache
 
 */
-class apache {
+class apache ($custom_httpd="") {
   case $::operatingsystem {
-    Debian,Ubuntu:  { include apache::debian}
+    Debian,Ubuntu:  { class{"apache::debian": custom_httpd => $custom_httpd}}
     RedHat,CentOS:  { include apache::redhat}
     default: { fail "Unsupported operatingsystem ${operatingsystem}" }
   }
